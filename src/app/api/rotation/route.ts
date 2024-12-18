@@ -9,9 +9,11 @@
 
 import { NextResponse } from 'next/server';
 
+const RIOT_API_BASE_URL = 'https://kr.api.riotgames.com';
+
 export async function GET() {
   try {
-    const response = await fetch('https://kr.api.riotgames.com/lol/platform/v3/champion-rotations', {
+    const response = await fetch(`${RIOT_API_BASE_URL}/lol/platform/v3/champion-rotations`, {
       headers: {
         'X-Riot-Token': process.env.RIOT_API_KEY || ''
       }
