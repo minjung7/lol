@@ -11,6 +11,8 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        "lol-gold": "rgb(200, 170, 110)", 
+        "lol-gold-hover": "rgb(240, 200, 140)",
       },
     },
   },

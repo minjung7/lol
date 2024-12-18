@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Link from "next/link";
+import QueryProvider from "@/components/queryProvider";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +31,31 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <QueryProvider>
+          <nav className="flex items-center bg-gray-900 p-4 justify-between">
+            <h1 className="text-lol-gold text-4xl font-bold hover:text-lol-gold-hover">
+              <Link href={"/"}>LEAGUE OF LEGENDS</Link>
+            </h1>
+            <div className="flex space-x-4">
+              <Link
+                href={"/champions"}
+                className="text-white text-lg font-medium"
+              >
+                챔피언 목록
+              </Link>
+              <Link href={"/items"} className="text-white text-lg font-medium">
+                아이템 목록
+              </Link>
+              <Link
+                href={"/rotation"}
+                className="text-white text-lg font-medium"
+              >
+                챔피언 로테이션
+              </Link>
+            </div>
+          </nav>
+          {children}
+        </QueryProvider>
       </body>
     </html>
   );
